@@ -36,15 +36,17 @@ class Auteur {
         $this->_dateNaissance = new Datetime($dateNaissance);
     }
 
-    public function ajouterLivre($nom, $date, $nbPage, $prix) {
-        // Quand j'appelle cette fonction elle me demandera en argument un objet livre, et ce dernier sera array_push dans le tableau de livres
-        array_push($this->livres, array($nom, $date, $nbPage, $prix));
-    }
+    public function ajouterLivre(Livre $livre){
+        $this->livres[] = $livre; // équivalent à array_push ou +=
+      }
 
     public function afficherBibliographie(){
-        echo "Livres de ". $this->_prenomAuteur."  ". $this->_nomAuteur ."<br>";
-        echo "<br>";
-        echo var_dump($this->livres);
+        echo '<h3>'."Livres de ". $this->_prenomAuteur."  ". $this->_nomAuteur .'</h3>';
+        // echo var_dump($this->livres);
+            foreach($this->livres as $livre) {
+                echo $livre->getNom(). " (" .$livre->getDate(). ") : ". $livre->getNbPage(). " pages / ". $livre->getPrix(). " euros <br>";
+            }
+        }
     }
+
     
-}

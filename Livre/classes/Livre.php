@@ -18,14 +18,14 @@ class Livre {
         $this->_auteur = $auteur;
         // "comme j'ai accès à un objet auteur a la ligne 18, j'ai donc accès aux méthodes public de la classe auteur
         // je vais faire appel a une fonction provenant de la classe auteur me permettant de push le livre que je suis entrain de construire, dans le tableau de $livres de l'auteur"
-        $this->_auteur->ajouterLivre($nom, $date, $nbPage, $prix);
+        $this->_auteur->ajouterLivre($this);
     }
 
     public function getNom() {
         return $this->_nom;
     }
     public function getDate() {
-        return $this->_date;
+        return $this->_date->format('Y');
     }
     public function getNbPage() {
         return $this->_nbPage;
