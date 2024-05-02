@@ -61,7 +61,7 @@ class Titulaire {
     public function afficherComptes(){
         echo "Comptes de ". $this->_prenom."  ". $this->_nom ." :<br>";
             foreach($this->comptes as $compte) {
-                echo " - ".$compte->getLibelle(). " : " .$compte->getSolde();
+                echo " - ".$compte->getLibelle(). " : " .$compte->getSolde()."<br>";
             }
         }
     }
